@@ -14,6 +14,9 @@ public class GenericMovable implements MovableObject {
 	public double getTimeToMove(double distance) {
 		return distance/speed;
 	}
+	public void brake(){
+		speed = speed -1;
+	}
 }
 
 /* canAccelerate(): boolean, accelerate(): void and getTimeToMove(double): double; implement it twice in classe*/ 

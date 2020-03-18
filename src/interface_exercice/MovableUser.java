@@ -1,6 +1,17 @@
 package interface_exercice;
 
 public class MovableUser {
+	
+	public static double getTotalTime(MovableObject movable) {
+		double totaltime = 0;
+		totaltime += movable.getTimeToMove(1);
+		movable.brake();
+		totaltime += movable.getTimeToMove(0.1);
+		movable.accelerate();
+		totaltime += movable.getTimeToMove(1);
+		
+		return totaltime;
+	}
 
 	public static void main(String[] args) {
 		ConstantSpeedMovable constantspeed = new ConstantSpeedMovable();
@@ -14,16 +25,13 @@ public class MovableUser {
 		genericspeed1.accelerate();
 		
 		System.out.println("Time to move 1 km with constantspeed : " + constantspeed.getTimeToMove(1));
-		System.out.println("Time to move 1 km with constantspeed : " + genericspeed1.getTimeToMove(1));
-		System.out.println("Time to move 1 km with constantspeed : " + genericspeed2.getTimeToMove(1));
+		System.out.println("Time to move 1 km with genericspeed1 : " + genericspeed1.getTimeToMove(1));
+		System.out.println("Time to move 1 km with genericspeed2 : " + genericspeed2.getTimeToMove(1));
 
+		System.out.println("Total time to move for constantspeed : " + getTotalTime(constantspeed));
+		System.out.println("Total time to move for genericspeed1 : " + getTotalTime(genericspeed1));
+		System.out.println("Total time to move for genericspeed2 : " + getTotalTime(genericspeed2));
+		
 	}
 
 }
-
-
-
-/* program a main method that instanciates one ConstantSpeedMovable and two GenericMovable objects, 
- * accelerate one of them, and prints the three resulting times to move 1 km
- */
-
