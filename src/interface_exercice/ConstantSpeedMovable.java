@@ -14,6 +14,7 @@ public class ConstantSpeedMovable implements MovableObject {
 	public double getTimeToMove(double distance) {
 		return distance/speed;
 	}
+	@Override
 	public void brake() {
 	
 	}
